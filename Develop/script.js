@@ -1,10 +1,13 @@
+// Constant variables for password content
 const lowercase = 'abcdefghijklmnopqrstuvwxyz'
 const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const number = '1234567890'
 const specialCharacter = '!@#$%&()/?'
 
+// Initial variable for length of password
 let askLength = ''
 
+// Function to get a value from the user's password length input
 const generateLen = () => {
   let askLength = prompt('Choose a number between 8-128 for the length of your password.')
 
@@ -17,6 +20,7 @@ const generateLen = () => {
   }
 }
 
+// Function to give the user's input a boolean value
 const checkInput = input => {
   input.toLowerCase()
   if (input === 'y' || input === 'n') {
@@ -26,6 +30,7 @@ const checkInput = input => {
   }
 }
 
+// Function to ask which criteria the user would like to include in their password and create a string of the included criteria 
 const generateChar = () => {
   do {
     askLower = prompt('Do you want to include lowercase in your password? Type in "y" or "n".')
@@ -44,6 +49,11 @@ const generateChar = () => {
   } while (!checkInput(askSpChar))
 
   let passwordChar = ''
+
+  if (askLower === 'n' && askUpper === 'n' && askNum === 'n' && askSpChar === 'n') {
+    alert('You must include at least 1 criteria!')
+    generateChar()
+  }
 
   if (askLower === 'y') {
     passwordChar += lowercase
@@ -64,6 +74,7 @@ const generateChar = () => {
   return passwordChar
 }
 
+// Function to create a random password by taking in the user's password length and criteria
 const generatePassword = (askLength, passwordChar) => {
   let password = ''
   for (let i = 0; i < askLength; i++) {
@@ -73,6 +84,7 @@ const generatePassword = (askLength, passwordChar) => {
   return password
 }
 
+// Added in the all the functions to call it and print out the password on the website
 document.getElementById('generate').addEventListener('click', () => {
   let passwordLen = generateLen()
 
