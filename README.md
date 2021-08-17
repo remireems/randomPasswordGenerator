@@ -3,3 +3,7 @@ For this assignment, I have written the js code to generate a random password fo
 URL: https://github.com/remireems/randomPasswordGenerator/settings/pages
 
 Screenshot:
+![Screenshot of RPG](ssRPG.png) 
+
+
+
